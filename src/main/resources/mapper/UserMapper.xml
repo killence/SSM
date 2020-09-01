@@ -1,0 +1,20 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.killen.mapper.UserMapper">
+    <resultMap id="user" type="com.killen.entity.User">
+        <!--        主键-->
+        <id column="id" property="id"/>
+        <!--        其中的olumn属性表示从数据库中查询的属性，property则表示查询出来的属性对应的值赋给实体对象的哪个属性 -->
+        <result column="userName" property="name"/>
+        <result column="passWord" property="passWord"/>
+        <result column="age" property="age"/>
+        <result column="sex" property="sex"/>
+        <result column="registeredTime" property="registeredTime" javaType="java.util.Date"/>
+    </resultMap>
+
+    <select id="findUserAll" resultMap="user">
+        SELECT * FROM user
+    </select>
+
+</mapper>
