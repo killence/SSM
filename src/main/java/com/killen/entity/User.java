@@ -1,5 +1,8 @@
 package com.killen.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -23,6 +26,7 @@ public class User implements Serializable {
     //性别
     private String sex;
     //注册时间
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date registeredTime;
 
     public Integer getId() {
@@ -65,6 +69,7 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     public Date getRegisteredTime() {
         return registeredTime;
     }
